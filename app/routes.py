@@ -29,7 +29,7 @@ def index():
             data.save(f"files/{key}/{filename}")
 
         flash(
-            f"Access key: {key}", "success",
+            f"Access key: {key}", "primary",
         )
         return redirect(url_for("index"))
     return render_template(
