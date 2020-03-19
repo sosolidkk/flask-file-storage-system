@@ -1,0 +1,84 @@
+html,
+body {
+  height: 100%;
+  min-width: 360px;
+  min-height: 650px;
+}
+
+body {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -ms-flex-align: center;
+  -ms-flex-pack: center;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #ffcccb;
+}
+
+strong {
+  background-color: #d3394c;
+  color: #fff;
+  font-weight: 800;
+  padding: 1px;
+}
+
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.inputfile, label {
+  max-width: 100%;
+  width: 100%;
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  padding: 0.625rem 1.25rem;
+  color: #f1e5e6;
+  background-color: #d3394c;
+  border-radius: 5px;
+}
+
+.inputfile:focus, label,
+.inputfile.has-focus, label {
+    /* outline: 1px solid #000; */
+    outline: -webkit-focus-ring-color auto 5px;
+}
+
+.inputfile, label:hover {
+  background-color: #c82333;
+}
+
+.inputfile, label svg {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    fill: currentColor;
+    margin-top: -0.25em;
+    margin-right: 0.25em;
+}
+
+.file-name {
+  overflow-wrap: break-word;
+  word-break: break-all;
+}
+
+.btn-sm {
+  width: 100%;
+  font-size: 1.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 5px;
+}
