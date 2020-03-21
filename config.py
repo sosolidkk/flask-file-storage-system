@@ -10,6 +10,7 @@ class Config(object):
     SECRET_KEY = os.environ.get("SECRET_KEY") or os.urandom(16)
     WTF_CSRF_SECRET_KEY = os.environ.get("SECRET_KEY") or os.urandom(16)
     UPLOAD_FOLDER = basedir + "/files/"
+    MAX_CONTENT_LENGTH = 2 * 1024 * 1024
 
 
 class ProductionConfig(Config):

@@ -34,14 +34,17 @@
                             <i class="fa fa-arrow-up"></i>
                         </div>
                     </div>
-                    <span id="file-name">Drag and drop a file here <br>or<br>
+                    <span id="file-label">Drag and drop a file here <br>or<br>
                         <label for="file" id="label-file">Browse files</label>
                     </span>
                 </div>
+                <small id="file-name" class="text-muted"></small>
                 <div class="form-group">
-                    <button type="submit" id="upload-btn" class="form-control btn btn-danger btn-sm" disabled></button>
+                    <button type="submit" id="upload-btn" class="form-control btn btn-danger btn-sm"
+                        disabled>Upload</button>
                 </div>
             </form>
+            <small class="text-muted">*Max file size: 2MB</small>
             {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
             {% for type, message in messages %}

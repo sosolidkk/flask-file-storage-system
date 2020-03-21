@@ -24,12 +24,19 @@ def index():
         filename = secure_filename(data.filename)
         key = token_urlsafe(16)
 
+        file_size = len(data.read())
+        data.seek(0)
+
+        if file_size > 2 * 1024 * 1024:  # 2MB
+            flash(f"File size too big", "danger")
+            return redirect(url_for("index"))
+
         if not exists(key):
             mkdir(f"files/{key}")
             data.save(f"files/{key}/{filename}")
 
         flash(
-            f"Access key: {key}", "primary",
+            f"Access key: {key}", "success",
         )
         return redirect(url_for("index"))
     return render_template(
