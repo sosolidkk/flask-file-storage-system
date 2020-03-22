@@ -17,11 +17,11 @@ body {
   justify-content: center;
   padding-top: 40px;
   padding-bottom: 40px;
-  background-color: #fef8f8;
+  background-color: #191919;
 }
 
 strong {
-  background-color: #d3394c;
+  background-color: #af0404;
   color: #ffffff;
   font-weight: 800;
   padding: 1px;
@@ -29,7 +29,9 @@ strong {
 
 .upload-container {
   height: 100%;
-  border: 1px dotted #d3394c;
+  /* background-color: #190061; */
+  box-shadow: 15px 10px 10px rgba(255, 255, 255, 0.4);
+  border: 2px solid #ffffff;
   border-radius: 5px;
 }
 
@@ -40,6 +42,7 @@ strong {
   align-items: center;
   justify-content: center;
 }
+
 .wrapper .file-upload {
   height: 150px;
   width: 150px;
@@ -50,12 +53,13 @@ strong {
   align-items: center;
   border: 4px solid #ffffff;
   overflow: hidden;
-  background-image: linear-gradient(to bottom, #d3394c 50%, #ffffff 50%);
+  background-image: linear-gradient(to bottom, #ff0000 50%, #ffffff 50%);
   background-size: 100% 200%;
   transition: all 1s;
   color: #ffffff;
   font-size: 100px;
 }
+
 .wrapper .file-upload input[type='file'] {
   height: 150px;
   width: 150px;
@@ -67,30 +71,45 @@ strong {
 }
 .wrapper .file-upload:hover {
   background-position: 0 -100%;
-  color: #d3394c;
+  color: #ff0000;
+}
+
+.card-header {
+  background-color: #ff0000 !important;
+}
+
+#span-file {
+  color: #ffffff;
 }
 
 #label-file {
   color: #ffffff;
-  background-color: #d3394c;
+  background-color: #ff0000;
   padding: 5px 10px;
   cursor: pointer;
 }
 
 #label-file:hover {
-  color: #d3394c;
+  color: #ff0000;
   background-color: #ffffff;
+}
+
+.btn {
+  color: #ffffff !important;
+  background-color: #ff0000 !important;
+}
+
+.btn:hover:enabled {
+  color: #ff0000 !important;
+  background-color: #ffffff !important;
+  cursor: pointer;
 }
 
 .btn-sm {
   width: 100%;
   font-size: 1.25rem;
   font-weight: 500;
-  cursor: pointer;
   border-radius: 5px;
   font-weight: 800;
   color: #ffffff;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  hyphens: auto;
 }

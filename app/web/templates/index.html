@@ -8,7 +8,7 @@
 <div class=" container">
 <div class="row">
     <div class="card">
-        <div class="card-header bg-danger text-light">
+        <div class="card-header text-light">
             <h4>Welcome to {{ brand }}</h4>
         </div>
         <div class="card-body">
@@ -18,6 +18,20 @@
                 Remember to save the key that we generate to you the time you upload the file.<br>
                 <strong>If you lose the key, you'll need to upload the file again.</strong>
             </p>
+            <hr>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            {% for type, message in messages %}
+            <div class=" alert alert-{{ type }} alert-dismissible fade show" role="alert">
+                <h5 class="alert-heading">Upload successful!</h5>
+                {{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
         </div>
         <div class="card-footer text-muted">
             <small>Made by <a href="#">@sosolidkk</a> with ❤️</small>
@@ -34,29 +48,16 @@
                             <i class="fa fa-arrow-up"></i>
                         </div>
                     </div>
-                    <span id="file-label">Drag and drop a file here <br>or<br>
+                    <span id="span-file">Drag and drop a file here <br>or<br>
                         <label for="file" id="label-file">Browse files</label>
                     </span>
                 </div>
                 <small id="file-name" class="text-muted"></small>
                 <div class="form-group">
-                    <button type="submit" id="upload-btn" class="form-control btn btn-danger btn-sm"
-                        disabled>Upload</button>
+                    <button type="submit" id="upload-btn" class="form-control btn btn-sm" disabled>Upload</button>
                 </div>
             </form>
             <small class="text-muted">*Max file size: 2MB</small>
-            {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-            {% for type, message in messages %}
-            <div class=" alert alert-{{ type }} alert-dismissible fade show" role="alert">
-                {{ message }}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            {% endfor %}
-            {% endif %}
-            {% endwith %}
         </div>
     </div>
 </div>
