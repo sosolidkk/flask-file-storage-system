@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block link %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}"">
+<link rel="stylesheet" href="{{ url_for('index.static', filename='css/form.css') }}"">
 {% endblock %}
 
 {% block body %}
@@ -23,7 +23,6 @@
             {% if messages %}
             {% for type, message in messages %}
             <div class=" alert alert-{{ type }} alert-dismissible fade show" role="alert">
-                <h5 class="alert-heading">Upload successful!</h5>
                 {{ message }}
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -52,12 +51,12 @@
                         <label for="file" id="label-file">Browse files</label>
                     </span>
                 </div>
-                <small id="file-name" class="text-muted"></small>
+                <small id="file-name" class="text-light"></small>
                 <div class="form-group">
                     <button type="submit" id="upload-btn" class="form-control btn btn-sm" disabled>Upload</button>
                 </div>
             </form>
-            <small class="text-muted">*Max file size: 2MB</small>
+            <small class="text-light">*Max file size: 2MB</small>
         </div>
     </div>
 </div>
@@ -65,5 +64,5 @@
 {% endblock %}
 
 {% block script %}
-<script src="{{ url_for('static', filename='js/form.js') }}" defer></script>
+<script src="{{ url_for('index.static', filename='js/form.js') }}" defer></script>
 {% endblock %}

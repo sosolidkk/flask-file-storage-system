@@ -1,8 +1,8 @@
 from os import mkdir, walk
 from os.path import exists, isfile, isdir
 from secrets import token_urlsafe
-from app import app
-from app.forms import UploadForm
+from . import index_blueprint
+from .forms import UploadForm
 from flask import (
     render_template,
     flash,
@@ -15,7 +15,7 @@ from flask import (
 from werkzeug.utils import secure_filename
 
 
-@app.route("/", methods=["GET", "POST"])
+@index_blueprint.route("/", methods=["GET", "POST"])
 def index():
     form = UploadForm()
 
@@ -27,7 +27,7 @@ def index():
         file_size = len(data.read())
         data.seek(0)
 
-        if file_size > 2 * 1024 * 1024:  # 2MB
+        if file_size > 2 * 1024 * 1024:
             flash(f"File size too big", "danger")
             return redirect(url_for("index"))
 
@@ -36,23 +36,22 @@ def index():
             data.save(f"files/{key}/{filename}")
 
         flash(
-            f"Access key: {key}", "success",
+            f"File access key: {key}", "success",
         )
-        return redirect(url_for("index"))
+        return redirect(url_for("index.index"))
     return render_template(
         "index.html", title="Index page", brand="OneTimeUploads", form=form
     )
 
 
-@app.route("/<string:id>", methods=["GET"])
+@index_blueprint.route("/<string:id>", methods=["GET"])
 def download_file(id):
     filename = ""
-    path = app.config["UPLOAD_FOLDER"] + id + "/"
+    path = index_blueprint.config["UPLOAD_FOLDER"] + id + "/"
 
     if exists(path):
-        # path, dirs, files
         for (_, _, files) in walk(path):
             filename = files[0]
         return send_file(path + filename, as_attachment=True)
     flash(f"KeyError, file not found!", "danger")
-    return redirect(url_for("index"))
+    return redirect(url_for("index.index"))
