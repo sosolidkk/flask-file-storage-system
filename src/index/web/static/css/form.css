@@ -6,15 +6,6 @@ body {
 }
 
 body {
-  display: -ms-flexbox;
-  display: -webkit-box;
-  display: flex;
-  -ms-flex-align: center;
-  -ms-flex-pack: center;
-  -webkit-box-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  justify-content: center;
   padding-top: 40px;
   padding-bottom: 40px;
   background: linear-gradient(-45deg, #0c0032, #190061, #3500d3, #282828);
@@ -41,81 +32,23 @@ strong {
   padding: 1px;
 }
 
-.upload-container {
-  height: 100%;
-  /* background-color: #383838; */
-  box-shadow: 3px 5px 5px rgba(255, 255, 255, 0.4);
-  border: 1px solid #ffffff;
-  border-radius: 5px;
-}
-
-.wrapper {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.wrapper .file-upload {
-  height: 150px;
-  width: 150px;
-  border-radius: 100px;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 4px solid #ffffff;
-  overflow: hidden;
-  background-image: linear-gradient(to bottom, #ff0000 50%, #ffffff 50%);
-  background-size: 100% 200%;
-  transition: all 1s;
-  color: #ffffff;
-  font-size: 100px;
-}
-
-.wrapper .file-upload input[type='file'] {
-  height: 150px;
-  width: 150px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  cursor: pointer;
-}
-.wrapper .file-upload:hover {
-  background-position: 0 -100%;
-  color: #ff0000;
-}
-
 .card-header {
-  background-color: #ff0000 !important;
+  background-color: #190061;
 }
 
-#span-file {
+.input-group-text {
   color: #ffffff;
-}
-
-#label-file {
-  color: #ffffff;
-  background-color: #ff0000;
-  padding: 5px 10px;
-  cursor: pointer;
-}
-
-#label-file:hover {
-  color: #ff0000;
-  background-color: #ffffff;
+  background-color: #3500d3;
 }
 
 .btn {
-  color: #ffffff !important;
-  background-color: #ff0000 !important;
+  color: #ffffff;
+  background-color: #3500d3;
 }
 
 .btn:hover:enabled {
-  color: #ff0000 !important;
-  background-color: #ffffff !important;
+  color: #ffffff;
+  background-color: #190061;
   cursor: pointer;
 }
 

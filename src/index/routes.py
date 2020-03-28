@@ -39,9 +39,7 @@ def index():
             f"File access key: {key}", "success",
         )
         return redirect(url_for("index.index"))
-    return render_template(
-        "index.html", title="Index page", brand="OneTimeUploads", form=form
-    )
+    return render_template("index.html", title="Index page", brand="!Brand", form=form)
 
 
 @index_blueprint.route("/<string:id>", methods=["GET"])

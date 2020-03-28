@@ -5,64 +5,78 @@
 {% endblock %}
 
 {% block body %}
-<div class=" container">
-<div class="row">
-    <div class="card">
-        <div class="card-header text-light">
-            <h4>Welcome to {{ brand }}</h4>
-        </div>
-        <div class="card-body">
-            <h5 class="card-title">What is {{ brand }}?</h5>
-            <p class="card-text">
-                {{ brand }} is a tool that lets you upload any file to download it later.<br>
-                Remember to save the key that we generate to you the time you upload the file.<br>
-                <strong>If you lose the key, you'll need to upload the file again.</strong>
-            </p>
-            <hr>
-            {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-            {% for type, message in messages %}
-            <div class=" alert alert-{{ type }} alert-dismissible fade show" role="alert">
-                {{ message }}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+<div class=" container h-100">
+<div class="row h-100 justify-content-center align-items-center">
+    <div class="card-group w-75">
+        <div class="card">
+            <div class="card-header text-light">
+                <h4></h4>
             </div>
-            {% endfor %}
-            {% endif %}
-            {% endwith %}
+            <div class="card-body">
+                <h5 class="card-title">What is {{ brand }}?</h5>
+                <p class="card-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in leo a leo ultrices ullamcorper.
+                    In<br>
+                    hac habitasse platea dictumst. Donec sit amet lacus in diam vulputate tincidunt. Vivamus sit
+                    amet<br>
+                    sapien ligula. Donec sagittis vitae erat at laoreet. Vestibulum nulla nisi, dictum eu odio in,<br>
+                </p>
+                <hr>
+            </div>
+            <div class="card-footer text-muted"> <small>Made by <a href="#">@sosolidkk</a> with ❤️</small>
+            </div>
         </div>
-        <div class="card-footer text-muted">
-            <small>Made by <a href="#">@sosolidkk</a> with ❤️</small>
-        </div>
-    </div>
-    <div class="col">
-        <div class="ml-2 p-4 text-center form upload-container">
-            <form action="" method="POST" enctype="multipart/form-data">
-                {{ form.hidden_tag() }}
-                <div class="form-group">
-                    <div class="wrapper">
-                        <div class="file-upload">
-                            {{ form.file(class="form-control inputfile") }}
-                            <i class="fa fa-arrow-up"></i>
+        <div class="card ew">
+            <div class="card-header text-light">
+                <h4></h4>
+            </div>
+            <div class="card-body text-center">
+                <img src="http://via.placeholder.com/96" class="rounded mb-3" width="96" height="96" alt="Logo"
+                    title="Logo">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                {% for type, message in messages %}
+                <div class=" alert alert-{{ type }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+                <form>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                            </div>
+                            <input name="" class="form-control" placeholder="Email" type="email">
                         </div>
                     </div>
-                    <span id="span-file">Drag and drop a file here <br>or<br>
-                        <label for="file" id="label-file">Browse files</label>
-                    </span>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                            </div>
+                            <input class="form-control" placeholder="Password" type="password">
+                        </div>
+                    </div>
+                    <div class="form-group text-left">
+                        <button type="submit" class="btn btn-block">Login</button>
+                    </div>
+                </form>
+                <hr>
+                <div class="text-left">
+                    <small><a href="#" class="">Create an account</a></small><br>
+                    <small><a href="#" class="">Forgot your password?</a></small>
                 </div>
-                <small id="file-name" class="text-light"></small>
-                <div class="form-group">
-                    <button type="submit" id="upload-btn" class="form-control btn btn-sm" disabled>Upload</button>
-                </div>
-            </form>
-            <small class="text-light">*Max file size: 2MB</small>
+            </div>
+            <div class="card-footer text-muted text-right">
+                <small>v0.1</small>
+            </div>
         </div>
     </div>
 </div>
 </div>
-{% endblock %}
-
-{% block script %}
-<script src="{{ url_for('index.static', filename='js/form.js') }}" defer></script>
 {% endblock %}
