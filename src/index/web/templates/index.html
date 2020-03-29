@@ -32,12 +32,12 @@
                 {% include "sub_templates/_sign_in.html" %}
                 <hr>
                 <div class="text-left">
-                    <small><a href="#" class="">Create an account</a></small><br>
+                    <small><a href="{{ url_for('index.sign_up') }}" class="">Create an account</a></small><br>
                     <small><a href="#" class="">Forgot your password?</a></small>
                 </div>
             </div>
             <div class="card-footer text-muted text-right">
-                <small>v0.1</small>
+                <small>&copy; {{ brand }} 2020-2020</small>
             </div>
         </div>
     </div>

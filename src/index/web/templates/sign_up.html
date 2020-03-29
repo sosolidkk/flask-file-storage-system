@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block link %}
+<link rel="stylesheet" href="{{ url_for('index.static', filename='css/form.css') }}"">
+{% endblock %}
+
+{% block body %}
+<div class=" container">
+<div class="row">
+    <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4 mt-2 mb-2">
+        <div class="card">
+            <div class="card-header"></div>
+            <div class="card-body">
+                <a href="{{ url_for('index.index') }}">
+                    <img src="http://via.placeholder.com/96" class="rounded mb-2" width="96" height="96" alt="Logo"
+                        title="Logo">
+                </a>
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                {% for type, message in messages %}
+                <div class="alert alert-{{ type }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+
+                <form action="" method="POST" class="text-left">
+                    {{ form.hidden_tag() }}
+
+                    <div class="form-group">
+                        {{ form.username.label }}
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text bg-primary text-white"><i class="fa fa-user"></i></div>
+                            </div>
+                            {{ form.username(class="form-control", placeholder="Username", size=32) }}
+                        </div>
+                        {% for error in form.username.errors %}
+                        <span class="badge badge-danger">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.email.label }}
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text bg-primary text-white">@</div>
+                            </div>
+                            {{ form.email(class="form-control", placeholder="Email", size=32) }}
+                        </div>
+                        {% for error in form.email.errors %}
+                        <span class="badge badge-danger">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.password.label }}
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text bg-primary text-white"><i class="fa fa-key"></i></div>
+                            </div>
+                            {{ form.password(class="form-control", placeholder="Password", size=32) }}
+                        </div>
+                        {% for error in form.password.errors %}
+                        <span class="badge badge-danger">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.password_confirmation.label }}
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text bg-primary text-white"><i class="fa fa-key"></i></div>
+                            </div>
+                            {{ form.password_confirmation(class="form-control", placeholder="Password confirmation", size=32) }}
+                        </div>
+                        {% for error in form.password_confirmation.errors %}
+                        <span class="badge badge-danger">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+
+                    <div class="d-flex justify-content-center row">
+                        {{ form.submit(class="btn btn-primary ml-2 mr-2 btn-block") }}
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer text-center text-muted">
+                <small>&copy; {{ brand }} 2020-2020</small>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+
+{% endblock %}
