@@ -130,3 +130,7 @@ dmypy.json
 
 # Files dir
 files/
+
+# Temp db dir
+temp/
+migrations/
