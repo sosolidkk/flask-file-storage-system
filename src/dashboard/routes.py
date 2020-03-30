@@ -17,5 +17,5 @@ def dashboard():
 @login_required
 def logout():
     logout_user()
-    flash(f"{current_user.username} logout successful!", "success")
+    flash("Logout successful.", "success")
     return redirect(url_for("index.index"))
