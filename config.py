@@ -16,7 +16,7 @@ class Config(object):
     MAX_CONTENT_LENGTH = 2 * 1024 * 1024
     SQLALCHEMY_DATABASE_URI = (
         os.environ.get("DATABASE_URL")
-        or f"sqlite:///{os.path.join(basedir, 'temp/dummy_db.db')}"
+        or f"sqlite:///{os.path.join(basedir, 'temp/toy_db.db')}"
     )
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
@@ -39,3 +39,7 @@ class TestingConfig(Config):
     TESTING = True
     WTF_CSRF_ENABLED = False
     CSRF_ENABLED = False
+    SQLALCHEMY_DATABASE_URI = (
+        os.environ.get("DATABASE_URL")
+        or f"sqlite:///{os.path.join(basedir, 'temp/test_db.db')}"
+    )
