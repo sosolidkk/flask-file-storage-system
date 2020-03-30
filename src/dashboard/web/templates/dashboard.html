@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+
+{% block body %}
+{% include "sub_templates/_flash.html" %}
+<small><a href="{{ url_for('dashboard.logout') }}" class="">Logout</a></small><br>
+{% endblock %}

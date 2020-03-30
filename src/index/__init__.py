@@ -1,4 +1,5 @@
-"""__init__.py index/
+"""
+__init__.py index/
 """
 
 from flask import Blueprint

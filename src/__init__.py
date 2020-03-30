@@ -12,6 +12,7 @@ migrate = Migrate()
 
 login = LoginManager()
 login.login_view = "index.index"
+login.login_message_category = "warning"
 
 
 def create_app(config_class=None):
@@ -38,5 +39,7 @@ def init_apps(app):
 
 def register_blueprints(app):
     from src.index import index_blueprint
+    from src.dashboard import dashboard_blueprint
 
     app.register_blueprint(index_blueprint)
+    app.register_blueprint(dashboard_blueprint)

@@ -1,3 +1,7 @@
+"""
+forms.py index/
+"""
+
 from src.models import User
 from flask_wtf import FlaskForm
 from wtforms import (

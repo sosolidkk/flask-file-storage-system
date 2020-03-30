@@ -10,10 +10,12 @@ class User(UserMixin, db.Model):
     Class that represents a user of the application
 
     The following attributes of a user are stored in this table:
+        username
         email address
-        password (hashed using Bcrypt)
-        authenticated flag (indicates if a user is logged in or not)
+        password (hashed using wekzeug.security)
+        description of user (filled later on the dashboard)
         date that the user registered on
+        last time user logged in
     """
 
     __tablename__ = "users"
